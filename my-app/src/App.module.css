@@ -88,3 +88,14 @@
 	border-radius: 4px;
 	box-shadow: 0px 0px 2px #030303, inset 0px -20px 1px #B00000;
 }
+.digit:hover,
+.math:hover,
+.total:hover,
+.clear:hover {
+  background-color: #FFBA75;
+  box-shadow: 0px 0px 2px #FFBA75, inset 0px -20px 1px #FF8000;
+  border-top: 2px solid #FFF;
+  border-right: 2px solid #FFF;
+  border-bottom: 2px solid #AE5700;
+  border-left: 2px solid #AE5700;
+}
