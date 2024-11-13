@@ -59,7 +59,7 @@ function App() {
 						}
 						type="text"
 						name="display"
-						value={pass ? display : op1 + ' ' + op + ' ' + op2}
+						value={pass ? display : op1 + op + op2 || '0'}
 						readOnly={true}
 					/>
 					{ar.map((it) => {
