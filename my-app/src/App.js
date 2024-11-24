@@ -62,13 +62,6 @@ function App() {
 			default:
 				handleClear();
 		}
-		// it.bt === 'digit'
-		// 	? handleDigit(event)
-		// 	: it.bt === 'math'
-		// 		? handleMath(event)
-		// 		: it.bt === 'total'
-		// 			? handleTotal()
-		// 			: handleClear();
 	};
 
 	return (
