@@ -48,11 +48,33 @@ function App() {
 		setDisplay(0);
 		setPass(false);
 	};
+	const handleResult = (event, it) => {
+		switch (it.bt) {
+			case 'digit':
+				handleDigit(event);
+				break;
+			case 'math':
+				handleMath(event);
+				break;
+			case 'total':
+				handleTotal();
+				break;
+			default:
+				handleClear();
+		}
+		// it.bt === 'digit'
+		// 	? handleDigit(event)
+		// 	: it.bt === 'math'
+		// 		? handleMath(event)
+		// 		: it.bt === 'total'
+		// 			? handleTotal()
+		// 			: handleClear();
+	};
 
 	return (
 		<div className={styles.app}>
 			<fieldset className={styles.container}>
-				<form>
+				<div>
 					<input
 						className={
 							!pass ? styles.display : styles.display + ' ' + styles.result
@@ -62,27 +84,19 @@ function App() {
 						value={pass ? display : op1 + op + op2 || '0'}
 						readOnly={true}
 					/>
-					{ar.map((it) => {
+					{ar.map((it, id) => {
 						return (
 							<input
-								onClick={
-									it.bt === 'digit'
-										? handleDigit
-										: it.bt === 'math'
-											? handleMath
-											: it.bt === 'total'
-												? handleTotal
-												: handleClear
-								}
+								onClick={(event) => handleResult(event, it)}
 								className={styles.button + ' ' + styles[`${it.bt}`]}
 								disabled={it.bt === 'math' && !op1 ? true : false}
 								type="button"
 								value={it.value}
-								key={String(Date.now()) + String(Math.random())}
+								key={id}
 							/>
 						);
 					})}
-				</form>
+				</div>
 			</fieldset>
 			<header className={styles['App-header']}></header>
 		</div>
